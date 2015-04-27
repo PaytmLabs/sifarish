@@ -293,7 +293,8 @@ public class SameTypeSimilarity  extends Configured implements Tool {
         	
         	//faceted fields
         	String facetedFieldValues =  conf.get("faceted.field.ordinal");
-        	if (!StringUtils.isBlank(facetedFieldValues)) {
+        	// if (!StringUtils.isBlank(facetedFieldValues)) {
+            if(facetedFieldValues != null && !facetedFieldValues.isEmpty()) {
         		facetedFields = org.chombo.util.Utility.intArrayFromString(facetedFieldValues);
         	}
         	
@@ -312,7 +313,8 @@ public class SameTypeSimilarity  extends Configured implements Tool {
         	
         	//extra selected passive fields to be output
         	String extraOutputFieldList = conf.get("extra.output.field");
-        	if (!StringUtils.isBlank(extraOutputFieldList)) {
+        	// if (!StringUtils.isBlank(extraOutputFieldList)) {
+            if(facetedFieldValues != null && !facetedFieldValues.isEmpty()) {
         		extraOutputFields = org.chombo.util.Utility.intArrayFromString(extraOutputFieldList);
         		
         	}        	
