@@ -18,7 +18,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
             </activation>
             <properties>
                 <log4j.version>1.2.16</log4j.version>
-                <hadoop.version>0.20.2-cdh3u2</hadoop.version>
+                <hadoop.version>2.6.0-cdh5.4.0</hadoop.version>
                 <jackson.version>1.9.13</jackson.version>
                 <jdk.level>1.6</jdk.level>
             </properties>
@@ -50,6 +50,22 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
                     </archive>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <shadedClassifierName>shaded</shadedClassifierName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -72,7 +88,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 
         <dependency>
             <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-core</artifactId>
+            <artifactId>hadoop-client</artifactId>
             <version>${hadoop.version}</version>
         </dependency>
         
